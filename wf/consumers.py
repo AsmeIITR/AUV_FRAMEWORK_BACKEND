@@ -124,8 +124,7 @@ class SimulatedPixhawkDataConsumer(AsyncWebsocketConsumer):
         self.running = True
         self.telemetry_task = asyncio.create_task(self.telemetry_stream())
         self.parameter_task = asyncio.create_task(self.parameter_stream())
-        print(f"[Simulation] Simulated Dashboard connected: {
-              self.channel_name}")
+        print(f"[Simulation] Simulated Dashboard connected: {self.channel_name}")
 
     async def disconnect(self, close_code):
         self.running = False
