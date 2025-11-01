@@ -132,8 +132,7 @@ class SimulatedPixhawkDataConsumer(AsyncWebsocketConsumer):
             self.telemetry_task.cancel()
         if hasattr(self, 'parameter_task'):
             self.parameter_task.cancel()
-        print(f"[SIMULATION] Simulated Dashboard disconnected: {
-              self.channel_name}")
+        print(f"[SIMULATION] Simulated Dashboard disconnected: {self.channel_name}")
 
     async def telemetry_stream(self):
         counter = 0
