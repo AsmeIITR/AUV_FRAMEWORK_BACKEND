@@ -124,8 +124,7 @@ class MAVLinkService:
             if msg:
                 param_id = msg.param_id.decode('utf-8').strip('\x00')
                 if param_id == param_name:
-                    print(f"[PIXHAWK,OUT] Parameter {
-                          param_name} set to {msg.param_value}")
+                    print(f"[PIXHAWK,OUT] Parameter {param_name} set to {msg.param_value}")
                     return True
 
             return False
