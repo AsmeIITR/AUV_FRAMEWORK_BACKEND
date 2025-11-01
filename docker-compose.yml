@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: https://github.com/AsmeIITR/AUV_FRAMEWORK_BACKEND.git 
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - /dev:/dev
+    privileged: true
+
+  frontend:
+    build:
+      context: https://github.com/AsmeIITR/AUV_FRAMEWORK_WEB.git
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+

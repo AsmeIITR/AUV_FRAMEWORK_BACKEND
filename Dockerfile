@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 3000
-CMD ["python", "manage.py", "migrate"]
-CMD ["daphne", "-b", "0.0.0.0", "-p", "3000", "auv25.asgi:application"]
+CMD ["sh", "-c", "python manage.py migrate && daphne -b 0.0.0.0 -p 3000 auv25.asgi:application"]
+
