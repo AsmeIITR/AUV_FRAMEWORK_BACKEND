@@ -18,8 +18,7 @@ class MAVLinkService:
             print("[PIXHAWK] Waiting for heartbeat...")
             self.master.wait_heartbeat()
 
-            print(f"[PIXHAWK] Heartbeat from system {
-                  self.master.target_system}")
+            print(f"[PIXHAWK] Heartbeat from system {self.master.target_system}")
         except Exception as e:
             print(f"[CONNECTION] Failed to connect to Pixhawk: {e}")
             raise  # TODO: Error Handling UI
@@ -42,8 +41,7 @@ class MAVLinkService:
 
             while True:
                 if time.time() > timeout:
-                    print(
-                        f"[PIXHAWK,IN] Timeout - Retrieved {len(parameters)} parameters")
+                    print(f"[PIXHAWK,IN] Timeout - Retrieved {len(parameters)} parameters")
                     break
 
                 msg = self.master.recv_match(
@@ -63,13 +61,10 @@ class MAVLinkService:
 
                 if expected_count is None:
                     expected_count = msg.param_count
-                    print(f"[PIXHAWK,IN] Expecting {
-                          expected_count} parameters")
+                    print(f"[PIXHAWK,IN] Expecting {expected_count} parameters")
 
                 if msg.param_index + 1 >= msg.param_count:
-                    print(f"[PIXHAWK,IN] Retrieved {
-                          len(parameters)} parameters")
-
+                    print(f"[PIXHAWK,IN] Retrieved {len(parameters)} parameters")
                     break
 
             return parameters
